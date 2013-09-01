@@ -1,0 +1,46 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:annotation>
+	<xsd:documentation xml:lang="DE">
+		Protogen Schema - Konfigurationsdateien 
+	</xsd:documentation>
+</xsd:annotation>
+
+
+<xsd:element name="project" type="projectType"/>
+<xsd:element name="title" type="xsd:string"/>
+<xsd:element name="author" type="xsd:string"/>
+<xsd:element name="url" type="xsd:string"/>
+<xsd:element name="path" type="xsd:string"/>
+<xsd:element name="htmldrafts" type="xsd:string"/>
+
+<xsd:complexType name="projectType">
+	<xsd:sequence>
+		<xsd:element ref="title" minOccurs="0"/>
+		<xsd:element ref="author" minOccurs="0"/>
+		<xsd:element ref="url" minOccurs="0"/>
+		<xsd:element ref="path" minOccurs="0"/>
+		<xsd:element ref="htmldrafts" minOccurs="0"/>
+		<xsd:element name="themes" type="themesType"/>
+		<xsd:element name="database" type="databaseType"/>
+	</xsd:sequence>
+	<xsd:attribute name="version" type="xsd:string"/>
+	<xsd:attribute name="name" type="xsd:string"/>
+</xsd:complexType>
+
+
+<xsd:complexType name="themesType">
+	<xsd:attribute name="folder" type="xsd:string"/>
+	<xsd:attribute name="default" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="databaseType">
+	<xsd:attribute name="type" type="xsd:NMTOKEN" fixed="mysql"/>
+	<xsd:attribute name="db" type="xsd:string"/>
+	<xsd:attribute name="host" type="xsd:string"/>
+	<xsd:attribute name="port" type="xsd:decimal"/>
+	<xsd:attribute name="user" type="xsd:string"/>
+	<xsd:attribute name="password" type="xsd:string"/>
+</xsd:complexType>
+
+</xsd:schema>

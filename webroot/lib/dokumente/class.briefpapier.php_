@@ -1,0 +1,609 @@
+<?php
+
+include_once('class.superfpdf.php');
+
+class Briefpapier extends SuperFPDF {
+  public $doctype;
+  public $doctypeOrig;
+  
+  public $logofile;
+  public $sender;
+  public $recipient;
+  public $corrDetails;
+  public $boldCorrDetails;
+  public $textDetails;
+  public $items;
+  
+  public $barcode;
+  
+  
+  /***********************************
+   *     data aggregation functions
+   ***********************************/  
+  function Briefpapier($app) {
+    $this->app=&$app;
+
+    $this->setDocumentDetails(
+        "sender",
+        array("enterprise"=>"embedded projects GmbH",
+              "firstname"=>"Dipl.-Inf(FH) Benedikt",
+              "familyname"=>"Sauter",
+              "address1"=>utf8_encode("Holzbachstraße 4"),
+              //"address2"=>"EG",
+              "areacode"=>"86152",
+              "city"=>"Augsburg",
+              "country"=>"Germany",
+              "phone1"=>"+(49) 821 279599-0",
+              "fax"=>"+(49) 821 279599-20",
+              "email"=>"info@embedded-projects.net",
+              "web"=>"www.embedded-projects.net",
+              //"taxnr"=>"109/125/52073", 
+              "ustid"=>"DE263136143")
+                );
+
+
+    if(is_file("./lib/pdf/images/logo_briefkopf.jpg"))
+      $this->logofile = "./lib/pdf/images/logo_briefkopf.jpg";
+    else
+      $this->logofile = "../pdf/images/logo_briefkopf.jpg";
+  }
+
+
+
+
+  public function addItem($rdata){
+    $rdata['tprice'] = $rdata['amount']*$rdata['price'];
+    $this->items[]=$rdata;
+  }
+   
+  public function setSender($rdata){
+    $this->sender['enterprise']   = $rdata[0];
+    $this->sender['firstname']     = $rdata[1];
+    $this->sender['familyname']   = $rdata[2];
+    $this->sender['address1']     = $rdata[3];
+    $this->sender['areacode']     = $rdata[4];
+    $this->sender['city']         = $rdata[5];
+    if(isset($rdata[6]))$this->sender['country'] = $rdata[6];
+  }
+
+  function setRecipientDB($adresse)
+  {
+    $tmp = $this->app->DB->SelectArr("SELECT * FROM adresse WHERE id='$adresse' LIMIT 1");
+    if($tmp[0]['typ']=="firma")
+    {
+      $this->recipient['enterprise'] = $tmp[0][name];
+      if($tmp[0][ansprechpartner]!="")
+	$this->recipient['firstname']   = "z.H. ".$tmp[0][ansprechpartner];
+      $this->recipient['address2']   = $tmp[0][abteilung];
+    }
+    else {
+      $this->recipient['enterprise'] = $tmp[0][name];
+    }
+
+    $this->recipient['address1']     = $tmp[0][strasse];
+    $this->recipient['areacode']     = $tmp[0][plz];
+    $this->recipient['city']         = $tmp[0][ort];
+    if($this->recipient['city']!="")
+      $this->recipient['country']      = $tmp[0][land];
+  }
+
+
+  public function setRecipient($rdata){
+    $this->recipient['enterprise']   = $rdata[0];
+    $this->recipient['firstname']   = $rdata[1];
+    $this->recipient['familyname']   = $rdata[2];
+    $this->recipient['address1']     = $rdata[1];
+    $this->recipient['areacode']     = $rdata[2];
+    $this->recipient['city']         = $rdata[3];
+    if(isset($rdata[3]))$this->recipient['country'] = $rdata[6];
+  }
+
+  public function setCorrDetails($rdata){
+    $this->corrDetails = $rdata;
+  }
+  public function setBoldCorrDetails($rdata){
+    $this->boldCorrDetails = $rdata;
+  }
+  public function setTextDetails($rdata){
+    $this->textDetails = $rdata;
+  }
+  
+
+  public function setTotals($rdata){
+    $this->totals   = $rdata;
+  }
+  
+
+  // Briefpapier festlegen
+  public function setStationery($stationeryfile) {
+      $this->setSourceFile(PATH.$stationeryfile);
+      $tplidx = $this->ImportPage(1);
+      $this->useTemplate($tplidx);    
+  }
+  
+  public function setLogo($logofile) {
+    $this->logofile = "./lib/pdf/images/".$logofile;
+  }
+  
+  
+  // label settings
+  public function setBarcode($barcode) {
+    $this->barcode = $barcode;
+  }  
+  
+  
+  public function Header() {
+    $this->Line(0,87,2,87);
+    $this->Line(0,148,4,148);
+    $this->Line(0,192,2,192);
+    if(isset($this->logofile)) 
+      $this->Image($this->logofile,15,10,110);
+    if(isset($this->barcode)){
+      //$this->Rotate(90);
+      $this->Code39(12, 260, $this->barcode, 1, 3);
+      //$this->Rotate(0);
+    }
+  }  
+  
+  public function Footer() {
+    $this->SetXY(10,-34);
+    $this->SetFont('HelveticaCond','',8);
+    $this->Cell(0,10,'Seite '.$this->PageNo().' von {nb}',0,0,'C');
+    
+    $this->SetXY(10,-26);
+    $this->SetDrawColor(30);
+    $this->SetTextColor(30);
+    $this->SetFont('HelveticaCond','',7);
+    $this->MultiCell(50,3,utf8_encode("  Sitz der Gesellschaft / Lieferanschrift\n  embedded projects GmbH\n  Holzbachstraße 4\n  D-86152 Augsburg\n  Telefon +49 821 27 95 99 0\n  Telefax +49 821 27 95 99 20"),'L','L');
+    $this->SetXY(60,-26);
+    $this->MultiCell(35,3,"  Bankverbindung:\n  Deutsche Bank\n  Konto 020746400\n  BLZ 72070001\n  \n  ",'L','L');
+    $this->SetXY(95,-26);
+    $this->MultiCell(60,3,"  IBAN DE75720700010020746400\n  BIC/SWIFT DEUTDEMM720\n  Ust-IDNr. DE2663136143\n  E-Mail: info@embedded-projects.net\n  Internet: http://shop.embedded-projects.net\n  ",'L','L');
+    $this->SetXY(155,-26);
+    $this->MultiCell(40,3,utf8_encode("  Geschäftsführer:\n  Dipl.-Inf.(FH) Benedikt Sauter\n  Handelsregsiter: HRB 23930\n  Amtsgericht: Augsburg\n  \n  "),'LR','L');
+  }  
+  
+  public function displayDocument() {
+    $this->renderDocument();
+    $this->Output($this->filename,'I');
+    exit;
+  }
+
+  public function displayTMP() {
+    $this->renderDocument();
+    $this->Output("/tmp/".$this->filename,'F');
+    return "/tmp/".$this->filename;
+  }
+
+
+  public function sendDocument() { 
+    $this->renderDocument();
+    $this->Output($this->filename,'S'); 
+    exit;
+  }  
+  
+  
+  /***********************************
+   *       public functions
+   ***********************************/  
+  // setup relevant data for a invoice
+  public function setupTax() {
+    // full taxrate
+    define("USTV",0.19);
+    // reduced taxrate
+    define("USTR",0.07);
+  }  
+  
+  
+  public function calcTotals() {
+    $total=$totalFullTax=$totalReducedTax=0;
+    for($i=0;$i<count($this->items);$i++) {
+      $total += $this->items[$i]['tprice'];
+      if($this->items[$i]['tax']=="USTV") $totalFullTax+= $this->items[$i]['tprice']*USTV;
+      else                                $totalReducedTax+= $this->items[$i]['tprice']*USTR;
+    }
+    return array($total,$totalFullTax,$totalReducedTax);
+  }
+
+  
+  public function renderDocument() {
+    // prepare page details
+    parent::PDF('P','mm','A4');
+
+    $this->AddFont('HelveticaBoldCond','','HLBC____.php');
+    $this->AddFont('HelveticaBoldCondItalic','','HLBCO___.php');
+    $this->AddFont('HelveticaCond','','HLC_____.php');
+    $this->AddFont('HelveticaCondItalic','','HLCO____.php');
+    // invoke Header() and Footer() by adding a new page
+    $this->AddPage();
+    $this->SetDisplayMode("real","single");
+      
+    $this->SetMargins(15,50);
+    $this->SetAutoPageBreak(true,40); 
+    $this->AliasNbPages('{nb}');
+    
+    // render document top to bottom
+    if(!empty($this->recipient)) 
+      $this->renderRecipient();
+    
+    if($this->doctype=="deliveryreceipt" && !empty($this->barcode))
+      $this->Code39(15, 75, $this->barcode, 1, 5);
+    
+    if(!empty($this->sender)) 
+      $this->renderSender();
+  
+    if(!empty($this->corrDetails) || !empty($this->boldCorrDetails)) 
+      $this->renderCorrDetails();
+      
+    $this->renderDoctype();
+    $this->renderText();
+
+
+    if(!empty($this->items)) {
+      $this->renderItems();
+      if($this->doctype!="deliveryreceipt") {
+        if($this->GetY()>215) $this->AddPage();
+        $this->renderTotals();
+      }
+    }
+    
+    $this->renderFooter();
+  }
+
+  
+  public function renderRecipient(){
+    $this->SetY(50);
+    $this->SetFont('HelveticaCond','',11);
+    if($this->recipient['enterprise']) {
+      $this->Cell(80,5,$this->recipient['enterprise'],0,1);
+    }
+
+    //$this->Cell(80,5,$this->recipient['firstname']." ".$this->recipient['familyname'],0,1);
+    $this->Cell(80,5,$this->recipient['address1'],0,1);
+    if(isset($this->recipient['address2'])) $this->Cell(80,5,$this->recipient['address2'],0,1);
+
+    if($this->recipient['firstname']!="")
+      $this->Cell(80,5,$this->recipient['firstname'],0,1);
+
+
+    $this->SetFont('HelveticaBoldCond','',11);
+    if($this->recipient['country']!="")
+      $this->Cell(80,5,$this->recipient['country']."-".$this->recipient['areacode']." ".$this->recipient['city'],0,1);
+    else
+      $this->Cell(80,5,$this->recipient['areacode']." ".$this->recipient['city'],0,1);
+    //$this->SetFont('HelveticaCond','',11);
+    //if(isset($this->recipient['country'])) $this->Cell(80,5,$this->recipient['country'],0,1);
+  }
+
+  
+  public function renderSender() {
+    $monthlu = array("", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+    $monthnom = date("n");
+    $month = $monthlu[$monthnom];
+    $date = date("j").". ".$month." ".date("Y");
+  
+    // line above address field
+    $this->SetY(43);
+    $this->SetFont('HelveticaCond','',7);
+    $cellStr = $this->sender['enterprise']." · ".$this->sender['address1']." · ".$this->sender['areacode']." ".$this->sender['city'];
+    $this->Cell($this->GetStringWidth($cellStr)+2,5,$cellStr,'B');
+
+    // detailed sender data
+    $lineHeight = 4;
+    $xOffset = 135;
+    $absatz = 3;
+    
+    $this->SetXY($xOffset,10);
+    $this->SetFont('HelveticaCond','',9);
+    $this->Cell(30,$lineHeight,"Name der Gesellschaft: ",0,0,'R');
+    $this->SetFont('HelveticaBoldCond','',9);
+    $this->Cell(60,$lineHeight,$this->sender['enterprise'],0,2);
+    if(isset($this->sender['enterprise2']))
+      $this->Cell(60,$lineHeight,$this->sender['enterprise2'],0,2);
+      
+    $this->SetXY($xOffset,$this->GetY());
+    $this->SetFont('HelveticaCond','',9);
+    $this->Cell(30,$lineHeight,"Sitz der Gesellschaft: ",0,0,'R');
+    $this->SetFont('HelveticaBoldCond','',9);
+    $this->Cell(60,$lineHeight,$this->sender['address1'],0,2);
+    if(isset($this->sender['address2']))
+      $this->Cell(60,$lineHeight,$this->sender['address2'],0,2);
+    $this->Cell(60,$lineHeight,$this->sender['areacode']." ".$this->sender['city'],0,2);
+
+    $this->SetXY($xOffset,$this->GetY()+$absatz); //abstand
+    $this->SetFont('HelveticaCond','',9);
+    if(isset($this->sender['phone1'])) {
+      $this->Cell(30,$lineHeight,"Fon: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['phone1'],0,2);
+    }
+    if(isset($this->sender['fax'])) {
+      $this->SetXY($xOffset,$this->GetY());
+      $this->Cell(30,$lineHeight,"Fax: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['fax'],0,2);
+    }
+
+    
+    $this->SetXY($xOffset, $this->GetY()+$absatz); //abstand
+    if(isset($this->sender['email'])) {
+      $this->Cell(30,$lineHeight,"Mail: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['email'],0,2);  
+    }
+      
+    if(isset($this->sender['web'])) {
+      $this->SetXY($xOffset,$this->GetY());
+      $this->Cell(30,$lineHeight,"Web: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['web'],0,2);  
+    }
+    
+    
+    $this->SetXY($xOffset, $this->GetY()+$absatz); //abstand
+    if(isset($this->sender['ustid'])) {
+      $this->Cell(30,$lineHeight,"UST-ID: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['ustid'],0,2);
+    }
+    if(isset($this->sender['taxnr'])) {
+      $this->SetXY($xOffset,$this->GetY());
+      $this->Cell(30,$lineHeight,"Steuer-Nr.: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['taxnr'],0,2);
+    }
+    if(isset($this->sender['hreg'])) {
+      $this->SetXY($xOffset,$this->GetY());
+      $this->Cell(30,$lineHeight,"Handelsregister: ",0,0,'R');
+      $this->Cell(60,$lineHeight,$this->sender['hreg'],0,2);
+    }
+    
+    $this->SetXY($xOffset,$this->GetY());
+    $this->Cell(30,$lineHeight,utf8_encode("Geschäftsführung: "),0,0,'R');
+    $this->Cell(60,$lineHeight,$this->sender['firstname'].' '.$this->sender['familyname'],0,2);
+    
+    $this->SetXY($xOffset, $this->GetY()+$absatz+2); //abstand
+    $this->Cell(30,$lineHeight,"Datum: ",0,0,'R');
+    $this->Cell(60,$lineHeight,$date,0,2);
+    
+  }
+  
+  
+  // kundennummer rechnungsnummer und datum
+  public function renderCorrDetails() {
+    $boldTitleStr = $boldValueStr = $titleStr = $valueStr = "";
+    if(isset($this->boldCorrDetails)){
+      foreach($this->boldCorrDetails as $title => $value) {
+        $boldTitleStr .= $title.": \n";
+        $boldValueStr .= $value."\n";
+      }
+    }
+    if(isset($this->corrDetails)){
+      foreach($this->corrDetails as $title => $value) {
+        $titleStr .= $title.": \n";
+        $valueStr .= $value."\n";
+      }
+    }
+   
+    if($boldTitleStr!="")
+    {
+      $this->SetFont('HelveticaBoldCond','',9);
+      $this->SetXY(-75,80);
+      $this->MultiCell(37,4,$boldTitleStr,"TL",'R');
+      $this->SetXY(-38,80);
+      $this->MultiCell(23,4,$boldValueStr,"TR",'R');    
+    } else {
+      $this->SetXY(-75,80);
+      $this->MultiCell(37,0,"","TL",'R');
+      $this->SetXY(-38,80);
+      $this->MultiCell(23,0,"","TR",'R');    
+
+    }
+
+    $this->SetFont('HelveticaCond','',9);
+    $tempY = $this->GetY();
+    $this->SetX(-75);
+    $this->MultiCell(37,4,$titleStr,"BL",'R');
+    $this->SetXY(-38,$tempY);
+    $this->MultiCell(23,4,$valueStr,"RB",'R');
+  }  
+
+  
+  public function renderDoctype() {
+    $this->Ln(7);
+    $this->SetFont('HelveticaBoldCond','',13);
+    $this->Cell(85,6,$this->doctypeOrig);
+  }
+  
+  public function renderText() {
+    if(isset($this->textDetails['body'])) {
+      $this->SetFont('HelveticaCond','',11);
+      $this->Ln(11);
+      $this->MultiCell(180,4,$this->textDetails['body']);
+    }
+  }  
+  
+  public function renderFooter() {
+    if(isset($this->textDetails['footer'])) {
+      $this->SetFont('HelveticaCond','',11);
+      $this->Ln();
+      // check for barcode here!
+      $this->MultiCell(180,4,$this->textDetails['footer']);
+    }
+  }
+  
+  public function renderItems() {
+  
+    $posWidth     = 10;
+    $amWidth     = 10;
+    $itemNoWidth = 31;
+    if($this->doctype!="deliveryreceipt")
+      $descWidth   = 81;
+    else
+      $descWidth   = 111;
+    $taxWidth   = 15;
+    $priceWidth = 15;
+    $sumWidth   = 15;
+    // $lineLength = $amWidth + $itemNoWidth + $descWidth + $taxWidth + $priceWidth + $sumWidth;
+    $cellhoehe   = 5;
+
+    // render table header
+    if(isset($this->textDetails['body'])) $this->Ln();
+    else $this->Ln(8);
+    
+    $this->SetFont('HelveticaBoldCond','',10);
+    $this->Cell($posWidth,6,'Pos',0,0,'C');
+    $this->Cell($itemNoWidth,6,'Artikelnr');
+    $this->Cell($descWidth,6,'Artikel');
+    $this->Cell($amWidth,6,'Menge',0,0,'R');
+    if($this->doctype!="deliveryreceipt") {
+      $this->Cell($taxWidth,6,'MWSt. %',0,0,'R');
+      $this->Cell($priceWidth,6,utf8_encode('Stück'),0,0,'R');
+      $this->Cell($sumWidth,6,'Gesamt',0,0,'R');
+    }
+    $this->Ln();
+    $this->Line($this->GetX(), $this->GetY(), 190, $this->GetY()); 
+    $this->Ln(2);
+  
+    // render table body
+    $this->SetFont('HelveticaCond','',10);
+   
+    $pos=0; 
+    foreach($this->items as $item){
+      //position
+      $this->Cell($posWidth,$cellhoehe,++$pos,0,0,'C');
+      //artikelnummer
+      if(isset($item['itemno'])) $this->Cell($itemNoWidth,$cellhoehe,$item['itemno'],0);
+      else $this->Cell($itemNoWidth);
+
+      $this->Cell($descWidth,$cellhoehe,$item['name'],0);
+      $this->Cell($amWidth,$cellhoehe,$item['amount'],0,0,'R');
+
+      if($this->doctype!="deliveryreceipt") {
+
+	if($item['tax'] == "") $item['tax'] = 0;
+	else if ($item['tax'] == "ermaessigt") $item['tax'] = 0.7;
+	else $item['tax'] = 0.19;
+
+        $tax = $item['tax']; //= $tax; //="USTV"?0.19:0.07;
+        $tax *= 100; $tax = $tax."%";
+
+        $this->Cell($taxWidth,$cellhoehe,$tax,0,0,'C');
+        //$this->Cell($priceWidth,$cellhoehe,number_format($item['price'], 2, ',', '').' '.$item['currency'],0,0,'R');
+	if($this->recipient['kundentyp']=="person" || $this->recipient['kundentyp'] =="student")
+	{
+	  $this->Cell($priceWidth,$cellhoehe,number_format($item['price'], 2, ',', ''),0,0,'R');
+	  $this->Cell($sumWidth,$cellhoehe,number_format($item['tprice'], 2, ',', ''),0,0,'R');
+	} else {
+	  $this->Cell($priceWidth,$cellhoehe,number_format($item['price']/(100 + $tax)*100, 2, ',', ''),0,0,'R');
+	  $this->Cell($sumWidth,$cellhoehe,number_format($item['tprice']/(100 + $tax)*100, 2, ',', ''),0,0,'R');
+	}
+      }
+      $this->Ln();
+      if(isset($item['desc'])) {
+        $this->SetFont('HelveticaCond','',8);
+        $this->Cell($posWidth);
+        $this->Cell($itemNoWidth);
+        $this->MultiCell($descWidth,3,$item['desc'],0);
+        $this->Cell($taxWidth);
+        $this->Cell($amWidth);
+        $this->Ln();
+        $this->SetFont('HelveticaCond','',10);
+      }
+    }
+    $this->Line($this->GetX(), $this->GetY(), 190, $this->GetY()); 
+  }  
+
+  
+  /*
+    totals (
+      totalArticles   - Summe aller Artikelpreise
+      modeOfDispatch   - Versandart
+      priceOfDispatch  - Versandkosten
+      modeOfPayment    - Zahlungsweise
+      priceOfPayment  - Kosten der Zahlungsweise
+      total           = totalArticles + priceOfDispatch + priceOfPayment
+      totalTaxV      - Summe voller Steuersatz
+      totalTaxR      - Summe reduzierter Steuersatz
+    )
+  */
+  public function renderTotals() {
+
+    if($this->recipient['kundentyp']!="person" && $this->recipient['kundentyp'] !="student")
+    {
+      $this->SetY($this->GetY()+20);
+      $this->Line(110, $this->GetY(), 190, $this->GetY());
+      $this->Ln(1);
+      $this->SetFont('HelveticaCond','',10);
+      $this->Cell(100,5,'',0);
+      $this->Cell(30,5,'Gesamt netto',0,0,'L');
+      $this->Cell(40,5,number_format($this->totals['totalArticles'], 2, ',', '').' EUR',0,'L','R');
+      $this->Ln();
+    } 
+
+    if(isset($this->totals['modeOfDispatch'])) $versand = 'Versand: '.$this->totals['modeOfDispatch'];
+    else $versand = 'Versandkosten: ';
+    if(isset($this->totals['priceOfDispatch'])) {
+      $this->Cell(100,5,'',0);
+      $this->Cell(30,5,$versand,0,'L','L');
+      $this->Cell(40,5,number_format($this->totals['priceOfDispatch'], 2, ',', '').' EUR',0,'L','R');
+    }
+    $this->Ln();
+    
+    if(isset($this->totals['priceOfPayment']) && $this->totals['priceOfPayment']!='0.00'){
+      $this->Cell(100,5,'',0);
+      $this->Cell(30,5,$this->totals['modeOfPayment'],0,'L','L');
+      $this->Cell(40,5,number_format($this->totals['priceOfPayment'], 2, ',', '').' EUR',0,'L','R');
+      $this->Ln();    
+    }
+
+    $this->SetY($this->GetY());
+    $this->SetFont('HelveticaCond','',8);
+
+     if(isset($this->totals['totalTaxV']) && $this->totals['totalTaxV']!="0.00"){
+      $this->Cell(100,3,'',0);
+      if($this->recipient['kundentyp']!="person" && $this->recipient['kundentyp'] !="student")
+	$this->Cell(30,3,'zzgl. MWSt. 19 %',0,'L','L');
+      else
+	$this->Cell(30,3,'inkl. MWSt. 19 %',0,'L','L');
+      $this->Cell(40,3,number_format($this->totals['totalTaxV'], 2, ',', '').' EUR',0,'L','R');
+      $this->Ln();
+    }
+    
+    if(isset($this->totals['totalTaxR']) && $this->totals['totalTaxR']!="0.00"){
+      $this->Cell(100,3,'',0);
+      if($this->recipient['kundentyp']!="person" && $this->recipient['kundentyp'] !="student")
+	$this->Cell(30,3,'zzgl. MWSt. 7 %',0,'L','L');
+      else
+	$this->Cell(30,3,'inkl. MWSt. 7 %',0,'L','L');
+      $this->Cell(40,3,number_format($this->totals['totalTaxR'], 2, ',', '').' EUR',0,'L','R');
+      $this->Ln();
+    }
+
+    if(!isset($this->totals['totalTaxR']) && !isset($this->totals['totalTaxV']))
+    {
+      $this->Cell(100,3,'',0);
+      if($this->recipient['kundentyp']=!"person" && $this->recipient['kundentyp'] !="student")
+	$this->Cell(30,3,'zzgl. MWSt. 0 %',0,'L','L');
+      else
+	$this->Cell(30,3,'inkl. MWSt. 0 %',0,'L','L');
+
+      $this->Cell(40,3,'0,00 EUR',0,'L','R');
+      $this->Ln();
+    }
+ 
+    $this->SetY($this->GetY()+2);
+    $this->Line(110, $this->GetY(), 190,$this->GetY());
+    
+    $this->SetFont('HelveticaBoldCond','',10);
+    $this->Cell(100,5,'',0);
+    if($this->doctype=="offer")
+      $this->Cell(30,5,'Angebotssumme',0,'L','L');
+    elseif($this->doctype=="creditnote")
+      $this->Cell(30,5,'Gutschriftbetrag',0,'L','L');
+    else 
+      $this->Cell(30,5,'Rechnungsbetrag',0,'L','L');
+    $this->Cell(40,5,number_format($this->totals['total'], 2, ',', '').' EUR',0,'L','R');
+    $this->Ln();
+    $this->Line(110, $this->GetY(), 190,$this->GetY());   
+    $this->Line(110, $this->GetY()+1, 190,$this->GetY()+1);
+    
+    $this->SetY($this->GetY()+10);
+    }
+  
+}
+?>

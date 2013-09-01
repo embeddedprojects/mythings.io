@@ -1,0 +1,146 @@
+<script type="text/javascript"> 
+     var tabView = new YAHOO.widget.TabView('demo'); 
+</script> 
+
+<table border="0" width="100%">
+<tr><td colspan="4" align="right">
+<table width="100%"><tr><td><b>AVR32 Evaluationsboards</b></td><td align="right">
+<img src="./themes/default/images/print.png">&nbsp;Drucken&nbsp;&nbsp;
+<img src="./themes/default/images/mail.png">&nbsp;Per eMail versenden
+</td></tr></table>
+<hr width="100%" style="border-bottom: 1px solid #ccc;  border-top: 0px; border-left: 0px; border-right: 0px;">
+</td></tr>
+<tr valign="top"><td colspan="4">
+<h1>
+[NAME]
+</h1>
+</td></tr>
+<tr valign="top"><td width="77%" colspan="2" height="480">
+
+<div id="demo" class="yui-navset"> 
+    <ul class="yui-nav">
+        <li class="selected"><a href="#tab1"><em>&Uuml;bersicht</em></a></li>
+        <li><a href="#tab2"><em>Beschreibung</em></a></li>
+        <li><a href="#tab2"><em>Datenbl&auml;tter/Downloads</em></a></li>
+    </ul>
+    <div class="yui-content" style="background-color:#ffffff">
+
+<div style="background-color:#fff">
+	<table border="0">
+	<tr height="430"><td width="">
+	<center>
+	[IMAGES]
+	<br>
+	<br>
+	Abbildung ist &auml;hnlich.<br>
+	Ausschlaggebend ist die Produktbeschreibung
+	</center>
+	</td><td valign="top">
+	<br>
+
+	<table width="100%" border="0">
+	<tr valign="top"><td width="60%">
+	<br>
+	<table cellpadding="0" cellspacing="0" width="100%">
+	<tr valign="bottom"><td><b>Hersteller:</b></td><td>[HERSTELLER]</td></tr>
+	<tr valign="bottom"><td><b>Bestell-Nr.:</b></td><td>[NUMMER]</td></tr>
+	<tr valign="bottom"><td><b>Preis:</b></td><td>[PREIS]</td></tr>
+	</table>
+	</td><td colspan="2">
+
+	<form action="./lib/onlinebestellung/cart/cartaction.php" method="post">
+	<input type="hidden" name="cmd" value="add">
+	<input type="hidden" name="articleid" value="[NUMMER]">
+	<input type="hidden" name="tax" value="[STEUER]">
+	<input type="hidden" name="price" value="[PREIS]">
+	<input type="hidden" name="title" value="[NAME]">
+	<table><tr><td>
+	Menge: </tD><td><input type="text" name="quantity" size="1" value="1"></td><td>
+	<input type="image" src="./themes/default/images/basket_add.png">
+	</td></tr>
+
+	<tr><td>Preis:</td><td colspan="2">[PREIS] EUR</td></tr></table>
+
+	</td></tr>
+	</form>
+	</td></tr>
+
+	<tr><td colspan="3">
+	<br>
+	<b>Beschreibung</b>
+	[UEBERSICHT]
+	</td></tr>
+	</table>
+</div>
+
+<div>[BESCHREIBUNG]</div>
+
+<div>[DATENBLAETTER]</div>
+
+</div>
+</div>
+
+</td></tr>
+</table>
+
+</td><td>&nbsp;</td><td>
+
+<br>
+
+<div class="greybox spacer">
+<b>Verf&uuml;gbare Menge:</b>
+<br><br>
+<table border="0">
+<tr><td>Im Lager:</td><td><img src="./themes/default/images/circle_green.png" width="10"></td><td></td></tr>
+<tr><td>Preis f&uuml;r:</td><td>1 St&uuml;ck</td><td></td></tr>
+<tr><td>Einzelpreis:</td><td colspan="2">[PREIS] EUR</td></tr>
+<tr><td><br></td><td></td><td></td></tr>
+<tr><td>Kaufen:</td><td nowrap>
+<form action="./lib/onlinebestellung/cart/cartaction.php" method="post">
+<input type="hidden" name="cmd" value="add">
+<input type="hidden" name="articleid" value="[NUMMER]">
+<input type="hidden" name="tax" value="[STEUER]">
+<input type="hidden" name="price" value="[PREIS]">
+<input type="hidden" name="title" value="[NAME]">
+<input type="text" name="quantity" size="1" value="1"> 
+</td><td><input type="image" src="./themes/default/images/basket_add.png"></td></tr>
+</form>
+</table>
+</div>
+
+<br>
+<div class="greybox spacer">
+<b>Dateien / Links:</b>
+<br>
+<ul>
+<li>Datenblatt</li>
+<li>Dokumentation</li>
+<li>Abmessungen</li>
+</ul>
+</div>
+<!--
+<br>
+<div class="greybox spacer">
+<b>Passende Artikel:</b>
+<br>
+<ul>
+<li>USB-Kabel</li>
+<li>JTAG ICE mkII</li>
+<li>Netzteil Universal</li>
+</ul>
+</div>
+-->
+<br>
+<div class="greybox spacer">
+<b>Artikel aus eigener Produktion:</b>
+<br><br>
+Dieser Artikel ist enstanden
+gemeinsam mit der Firma In-Circuit.
+Von der Prototypen.
+
+</div>
+
+</td></tr>
+<tr><td colspan="3">
+</td><td></td></tr></table>
+<br><center><p>[AKTUALISIERUNG]</p></center>

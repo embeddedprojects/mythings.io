@@ -1,0 +1,269 @@
+<script type="text/javascript"> 
+     var tabView = new YAHOO.widget.TabView('demo'); 
+</script> 
+
+<table border="0" width="100%">
+<tr><td colspan="3" align="right">
+<table width="100%"><tr><td><b>AVR32 Evaluationsboards</b></td><td align="right">
+<img src="./themes/default/images/print.png">&nbsp;Drucken&nbsp;&nbsp;
+<img src="./themes/default/images/mail.png">&nbsp;Per eMail versenden
+</td></tr></table>
+<hr width="100%" style="border-bottom: 1px solid #ccc;  border-top: 0px; border-left: 0px; border-right: 0px;">
+</td></tr>
+<tr valign="top"><td colspan="3">
+<h1>
+[NAME]
+</h1>
+</td></tr>
+<tr valign="top"><td width="70%" colspan="2" height="480">
+<div id="demo" class="yui-navset"> 
+    <ul class="yui-nav">
+        <li class="selected"><a href="#tab1"><em>&Uuml;bersicht</em></a></li>
+        <li><a href="#tab2"><em>Fotos</em></a></li>
+        <li><a href="#tab2"><em>Beschreibung</em></a></li>
+        <li><a href="#tab2"><em>Downloads</em></a></li>
+
+    </ul>
+    <div class="yui-content" style="background-color:#ffffff">
+
+<div style="background-color:#fff">
+
+<table>
+<tr height="430"><td width="55%">
+<center>
+[IMAGES]
+<br>
+Abbildung ist &auml;hnlich.<br>
+Ausschlaggebend ist die Produktbeschreibung
+</center>
+</td><td valign="top">
+<br><br>
+<b>Hersteller:</b>
+[HERSTELLER]<br>
+<b>Bestell-Nr.:</b>
+[NUMMER]<br>
+
+<p class="rohs_info">
+<a href="/jsp/viewDefault/search/fragments/">
+RoHS-konform
+</a>:
+<strong> Ja </strong>
+</p>
+<dl class="pd_details">
+<dt>Beschreibung</dt>
+</dl>
+<ul class="bull">
+<li>WANDLER DC/DC, SMD PACKAGE, 1W, 5V</li>
+
+<li> DC/DC Wandler O/P Typ:Single</li>
+<li> Ausg&auml;nge, Zahl der:1</li>
+<li> Input Voltage:4.75V to 5.25V</li>
+<li> Nennleistung:1W</li>
+<li> Spannung, Ausgang:5V</li>
+<li> Strom, Ausgang:150mA</li>
+
+<li> Spannung, Versorgung:5V</li>
+<li> DC / DC Converter Case Style:SMD</li>
+<li> Befestigungstyp:SMT</li>
+<li> Spannung, Isolier-:1kV</li>
+<li> Breite/Weite:15.24mm</li>
+<li> L&auml;nge/H&ouml;he, Au&szlig;en-:6.5mm</li>
+
+<li> Tiefe, Aussen:7.5mm</li>
+<li> Wirkungsgrad:68%</li>
+</ul>
+</td></tr></table>
+
+</div>
+
+ <div><p>2</p></div>
+ <div><p>3</p></div>
+ <div><p>4</p></div>
+
+
+
+    </div>
+</div>
+
+
+
+</td><td>
+
+<br>
+<div class="greybox spacer">
+<b>Verf&uuml;gbare Menge:</b>
+<br><br>
+<table>
+<tr><td>Lagerbestand:</td><td><img src="./themes/default/images/circle_green.png" width="10"></td><td></td></tr>
+<tr><td>Preis f&uuml;r:</td><td>1 St&uuml;ck</td><td></td></tr>
+<tr><td>Einzelpreis:</td><td>99,95 EUR</td><td></td></tr>
+<tr><td><br></td><td></td><td></td></tr>
+<tr><td>Kaufen:</td><td nowrap><input type="text" size="4"></td><td><img src="./themes/default/images/basket_add.png"></td></tr>
+</table>
+</div>
+
+<br>
+<div class="greybox spacer">
+<b>Dateien / Links:</b>
+<br>
+<ul>
+<li>Datenblatt</li>
+<li>Dokumentation</li>
+<li>Abmessungen</li>
+</ul>
+</div>
+
+<br>
+<div class="greybox spacer">
+<b>Passende Artikel:</b>
+<br>
+<ul>
+<li>USB-Kabel</li>
+<li>JTAG ICE mkII</li>
+<li>Netzteil Universal</li>
+</ul>
+</div>
+
+</td></tr>
+<tr><td colspan="2">
+<style type="text/css">
+    .yui-carousel-element li {
+        height: 100px;
+        text-align: left;
+    }
+
+    #container {
+        font-size: 13px;
+        margin: 0 auto;
+    }
+
+    #container a {
+        text-decoration: none;
+    }
+            
+    #container .item {
+        display: inline;
+        margin: 0 22px 0 12px;
+        overflow: hidden;
+        padding-right: 80px;
+        width: 70px;
+    }
+
+    #container .item .authimg {
+        bottom: 2px;
+        margin-left: 61px;
+        position: absolute;
+        z-index: 1;
+    }
+            
+    #container .item h3 {
+        line-height: 85%;
+        margin-top: 4px;
+    }
+            
+    #container .item h3 a {
+        font: 77% Arial, sans-serif;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 2;
+    }
+            
+    #container .item h3 a:link {
+        color:#35a235;
+    }
+            
+    #container .item h4 {
+        margin-top:5px;
+    }
+            
+    #container .item h4 a {
+        font: 100% Georgia, Times, serif;
+        position: relative;
+        z-index:2;
+    }
+
+    #container .item h4 a:link {
+        color:#00639b;
+    }
+            
+    #container .item cite {
+        color: #888;
+        display: block;
+        font-size: 77%;
+        line-height: normal;
+        margin-bottom: 30px;
+    }
+            
+    #container .item p.all {
+        bottom: 25px;
+        position: absolute;
+        z-index: 2;
+    }
+            
+    #container .item p.all a {
+        font-weight: bold;
+        font-size: 85%;
+    }
+</style>
+<!-- The Carousel container -->
+<div id="container">
+    <ol id="carousel">
+        <li class="item">
+            <a class="authimg" href="#">
+                <img border="0"
+                     alt="Leslie Baumann, M.D."
+                     src="http://www.ic-board.de/images/product_images/thumbnail_images/9_0.jpg"/>
+            </a>
+            <h3><a href="#">ARM7 Board</a></h3>
+            <p class="all"><a href="http://health.yahoo.com/experts/skintype/">Artikel betrachten&raquo;</a></p>
+        </li>
+        <li class="item">
+            <a class="authimg" href="#">
+                <img border="0"
+                     alt="Leslie Baumann, M.D."
+                     src="http://www.ic-board.de/images/product_images/thumbnail_images/28_0.jpg"/>
+            </a>
+            <h3><a href="#">ARM7 Board</a></h3>
+            <p class="all"><a href="http://health.yahoo.com/experts/skintype/">Artikel betrachten&raquo;</a></p>
+        </li>
+
+        <li class="item">
+            <a class="authimg" href="#">
+                <img border="0"
+                     alt="Leslie Baumann, M.D."
+                     src="http://www.ic-board.de/images/product_images/thumbnail_images/29_0.jpg"/>
+            </a>
+            <h3><a href="#">ARM7 Board</a></h3>
+            <p class="all"><a href="http://health.yahoo.com/experts/skintype/">Artikel betrachten&raquo;</a></p>
+        </li>
+        <li class="item">
+            <a class="authimg" href="#">
+                <img border="0"
+                     alt="Leslie Baumann, M.D."
+                     src="http://www.ic-board.de/images/product_images/thumbnail_images/28_0.jpg"/>
+            </a>
+            <h3><a href="#">ARM7 Board</a></h3>
+            <p class="all"><a href="http://health.yahoo.com/experts/skintype/">Artikel betrachten&raquo;</a></p>
+        </li>
+
+ 
+
+    </ol>
+</div>
+<br><br>
+<script>
+    (function () {
+        var carousel;
+                
+        YAHOO.util.Event.onDOMReady(function (ev) {
+            var carousel    = new YAHOO.widget.Carousel("container", {
+                        animation: { speed: 0.5 }
+                });
+                        
+            carousel.render(); // get ready for rendering the widget
+            carousel.show();   // display the widget
+        });
+    })();
+</script>
+</td><td></td></tr></table>
+<br><center><p>Letzte Aktualisierung: 24.12.2009</p></center>

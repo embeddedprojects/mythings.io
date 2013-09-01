@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>embedded projects Journal</title>
+<link href="./themes/default/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="maintopPan">
+  <div id="logoPan"> <a href="http://www.free-css.com/"><img src="./themes/default/images/logo.gif" title="Intech Growth" alt="Intech Growth" width="171" height="42" border="0" /></a> </div>
+  <div id="headerPan">
+    <table><tr><td>
+    <ul>
+      <li class="home"><a href="http://www.free-css.com/">Home</a></li>
+      <li class="aboutus sidenavpadding"><a href="http://www.free-css.com/">Artikel</a></li>
+      <li class="contact sidenavpadding"><a href="http://www.free-css.com/">Contact Us</a></li>
+    </ul>
+    </td><td>
+    <ul>
+      <li class="home2"><a href="http://www.free-css.com/">Home</a></li>
+      <li class="aboutus2 sidenavpadding"><a href="http://www.free-css.com/">Archiv</a></li>
+      <li class="contact2 sidenavpadding"><a href="http://www.free-css.com/">Contact Us</a></li>
+    </ul>
+    </td></tr></table>
+
+  </div>
+  <div id="menuPan">
+    <ul>
+      <li class="client">Journal</li>
+      <li class="testimonials"><a href="http://www.free-css.com/">Leser</a> </li>
+      <li class="services"><a href="http://www.free-css.com/">Autor</a></li>
+      <li class="projects"><a href="http://www.free-css.com/">Firma</a></li>
+      <li class="projects"><a href="http://www.free-css.com/">Hochschule</a></li>
+      <li class="markets"><a href="index.php?module=zeitschrift&action=login">Login</a></li>
+    </ul>
+  </div>
+</div>
+<div id="mainbodyPan">
+  <div id="bodyPan">
+[PAGE]
+<!--
+    <h3>Startschu&szlig; in eine neue &Auml;ra!</h3>
+    <h4>Open-Source lebt!<br />
+      <span>EP-Journal</span></h4>
+    <p>Nach den ersten beiden Testjahren des embedded projects Journal, haben wir uns dazu entschieden das Projekt
+      jetzt auf feste eigene Beine zu stellen.</p>
+    <p class="img1"><img src="./themes/default/images/blank.gif" alt="" /></p>
+    <p class="caption">porttito at fermentum sit amet ante magna idetu </p>
+    <p class="comments">Comments <span class="no">12</span></p>
+    <p class="continue"><a href="http://www.free-css.com/">continue</a></p>
+    <p class="border"><img src="./themes/default/images/blank.gif" alt="" /></p>
+
+    <h5>l robinson <br />
+      <span>intech growth</span></h5>
+    <p class="img2"><img src="./themes/default/images/blank.gif" alt="" /></p>
+    <p>Lorem ipsum dolor <span>sit amet, consectetuer</span> adipiscing elit. Praesent adipiscing ipsum id nislpo. Praesent quis magna vel neque porttitor mollis. In eleifend, risus et hendrerit tempor, purusur imperdiet augu, at ullamcorper eros magna id mauris.Nunc justo lectus, luctus vitae, porttito at, fermentum sit amet, ante</p>
+    <p class="caption">porttito at fermentum sit amet ante magna idetu </p>
+    <p class="comments">Comments <span class="no">15</span></p>
+    <p class="continue"><a href="http://www.free-css.com/">continue</a></p>
+
+-->
+  </div>
+</div>
+<div id="footermainPan">
+  <div id="footerPan">
+    <ul>
+      <li><a href="http://www.free-css.com/">&Uuml;ber uns</a>| </li>
+      <li><a href="http://www.free-css.com/">Autor werden</a>| </li>
+      <li><a href="http://www.free-css.com/">Sponsoring</a>| </li>
+      <li><a href="http://www.free-css.com/">Service</a>| </li>
+      <li><a href="http://www.free-css.com/">Kontakt</a>| </li>
+      <li><a href="http://www.free-css.com/">Mediadaten</a>| </li>
+      <li><a href="http://www.free-css.com/">Impressum</a></li>
+    </ul>
+    <p class="copyright">&copy; embedded projects GmbH 2007 - 2010</p>
+  </div>
+</div>
+</body>
+</html>

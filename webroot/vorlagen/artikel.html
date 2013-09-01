@@ -1,0 +1,213 @@
+<form action="" method="post" name="eprooform">
+[FORMHANDLEREVENT]
+
+<!-- gehort zu tabview -->
+<div id="tabview" class="yui-navset">
+    <ul class="yui-nav">
+        <li class="[AKTIV_BESCHREIBUNG]"><a href="#tab1"><em>Beschreibung</em></a></li>
+        <li class="[AKTIV_OPTIONEN]"><a href="#tab3"><em>Optionen</em></a></li>
+        <li class="[AKTIV_EIGENSCHAFTEN]"><a href="#tab2"><em>Eigenschaften</em></a></li>
+        <li class="[AKTIV_SPERRE]"><a href="#tab4"><em>Sperre</em></a></li>
+    </ul>
+
+    <div class="yui-content">
+<!-- ende gehort zu tabview -->
+
+<div>
+
+  <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Artikelbeschreibung<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+[MESSAGE]
+          <table border="0" width="100%">
+            <tbody>
+	      <tr><td colspan="2"><br></td></tr>
+	      <tr><td>Artikel (DE)</td><td><input type="text" name="name_de" size="50"></td></tr>
+	      <tr><td>Artikel Nr.</td><td><input type="text" name="nummer" size="40"></td></tr>
+	      <tr><td>Artikel Typ</td><td>
+		<select name="typ">
+		  <option value="produkt">Produkt</option>
+		  <option value="material">Material</option>
+		  <option value="dienstleistung">Dienstleistung</option>
+		  <option value="gebuehr">Geb&uuml;hr</option>
+		  </select>
+	      </td></tr>
+	      <tr><td>Standardlieferant</td><td>[LIEFERANTAUTOSTART]<input name="lieferant" type="text" size="40">[LIEFERANTAUTOEND]</td></td></tr>
+	      <!--<tr><td>Warengruppe</td><td><select name="warengruppe">[WARENGRUPPE_SELECT]</select></td></td></tr>-->
+	      <tr><td>Herstellerlink</td><td><input type="text" name="herstellerlink" size="50"></td></tr>
+	      <tr><td>ROHS Nr.</td><td><input type="text" name="rohsnummer" size="50"></td></tr>
+	      <tr><td>Artikel (EN)</td><td><input type="text" name="name_en" size="50"></td></tr>
+	      <tr><td>Kurztext (DE)</td><td><textarea rows="2" cols="50" name="kurztext_de"></textarea></td></tr>
+	      <tr><td>Kurztext (EN)</td><td><textarea rows="2" cols="50" name="kurztext_en"></textarea></td></tr>
+	      <tr><td>Beschreibung (DE)</td><td><textarea rows="5" cols="50" name="beschreibung_de"></textarea></td></tr>
+	      <tr><td>Beschreibung (EN)</td><td><textarea rows="5" cols="50" name="beschreibung_en"></textarea></td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+     <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+  
+ </div>
+
+
+
+<div>
+
+  <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Artikeloptionen<br></td>
+      </tr>
+      <tr valign="top" colspan="3">
+        <td>
+          <table border="0" width="100%">
+            <tbody>
+	      <tr><td colspan="2"><br></td></tr>
+	      <tr><td colspan="2"><b>Lieferung / Lager / Steuersatz</b></td></tr>
+	     <tr><td>Standardlager</td><td><input type="text" name="standardlager" size="30"><input type="button" value="Lager"></td><td>
+	      <tr><td>Lieferzeit</td><td>
+		<select name="lieferzeit">
+		  <option value="7">1 Woche</option>
+		  <option value="14">2 Wochen</option>
+		  <option value="21">3 Wochen</option>
+		  <option value="28">4 Wochen</option>
+		  <option value="42">6 Wochen</option>
+		  <option value="84">12 Wochen</option>
+		  <option value="unbekannt">unbekannt</option>
+		  </select>
+	      </td></tr>
+	      <tr><td>Umsatzsteuerklasse</td><td><select name="umsatzsteuer">		      
+		  <option value="normal">normal</option>i
+		  <option value="ermaessigt">erm&auml;&szlig;igt</option>
+		  </select> </td></tr>
+	      <tr><td colspan="2"><br></td></tr>
+	      <tr><td colspan="2"><b>Optionen</b></td></tr>
+	      <tr><td>Aktiv</td><td><input type="checkbox" name="aktiv" value ="1"></td></tr>
+	      <tr><td>Shop-Artikel</td><td><input type="checkbox" name="shopartikel" value ="1"></td></tr>
+	      <tr><td>Unishop-Artikel</td><td><input type="checkbox" name="unishopartikel" value ="1"></td></tr>
+	      <tr><td>St&uuml;ckliste</td><td><input type="checkbox" name="stueckliste" value="1"></td></tr>
+	      <tr><td>Endmontage</td><td><input type="checkbox" name="endmontage" value="1">
+		(Es ist eine Endmontage notwendig.)</td></tr>
+	      <tr><td>Funktionstest</td><td><input type="checkbox" name="funktionstest" value="1">
+		(Es muss ein Funktionstest durchgef&uuml;hrt werden.)</td></tr>
+	      <tr><td>Artikelcheckliste</td><td><input type="checkbox" name="artikelcheckliste" value="1">
+		(Es muss eine Artikelcheckliste anlegt werden.)</td></tr>
+	      <tr><td>Lagerartikel</td><td><input type="checkbox" name="lagerartikel" value="1"></td></tr>
+	      <tr><td>Chargenverwaltung</td><td><input type="checkbox" name="chargenverwaltung" value="1"></td></tr>
+	      <tr><td>Provisionsartikel</td><td><input type="checkbox" name="provisionsartikel" value="1"></td></tr>
+	      <tr><td>Designfreigabe</td><td><input type="checkbox" name="provisionsartikel" value="1"></td></tr>
+	      <tr><td>Sonstiges</td><td><textarea rows="5" cols="50" name="sonstiges"></textarea></td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+     <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+    </tbody>
+  </table>
+  
+ </div>
+<div>
+
+  <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Artikeleigenschaften<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+          <table border="0" width="100%">
+            <tbody>
+
+	      <tr><td colspan="2"><br></td></tr>
+	      <tr><td colspan="2"><b>Seriennummern Verwaltung</b></td></tr>
+	      <tr><td>Seriennummern</td><td>
+	      <select name="seriennummern">
+	      <option value="keine">Keine Seriennummern</option>
+	      <option value="eigene">Eigene Seriennummern erzeugen</option>
+	      <option value="vomprodukt">Produktspezifische Seriennummern nutzen</option>
+	      </select>
+	      </td></tr>
+	     
+	      <tr><td colspan="2"><br><br></td></tr>
+	      <tr><td colspan="2"><b>Einheiten</b></td></tr>
+	      <tr><td>Gewicht</td><td><input type="text" name="gewicht" size="30"><input type="button" value="Waage"></td></tr>
+	      <tr><td>Teilbar</td><td><input type="checkbox" name="teilbar" value="1"></td><td>
+	      <tr><td>In n Teile</td><td><input type="text" name="nteile" size="30"><input type="button" value="Rechner"></td></tr>
+	      <tr><td colspan="2"><br></td></tr>
+      </tbody>
+          </table>
+        </td>
+      </tr>
+
+     <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+ 
+</div>
+
+
+<div>
+	
+  <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Artikelsperre<br></td>
+      </tr>
+      <tr valign="top" colspan="3">
+        <td>
+          <table border="0" width="100%">
+            <tbody>
+	      <tr><td colspan="2"><br></td></tr>
+	      <tr><td><b>Artikelsperre</b></td><td></td></tr>
+	      <tr><td>G&uuml;ltig bis</td><td><input type="text" name="gueltigbis" id="gueltigbis" size="10">[KALENDER_GUELTIGBIS]</td></tr>
+	      <tr><td>Gesperrt</td><td><input type="checkbox" name="gesperrt" value="1"></td></tr>
+	      <tr><td>Sperrgrund</td><td><input type="text" name="sperrgrund" size="40"></td></tr>
+	      <tr><td colspan="2"><br></td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+    <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+  
+    </tbody>
+  </table>
+  
+ </div>
+  
+ <!-- tab view schließen -->
+</div></div>
+<!-- ende tab view schließen -->
+  
+  </form>
+</body></html>

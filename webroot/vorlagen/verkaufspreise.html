@@ -1,0 +1,47 @@
+ 
+<form action="" method="post" name="eprooform">
+[FORMHANDLEREVENT]
+
+ <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Verkaufspreise<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+
+<table border="0" width="100%">
+            <tbody>
+              <tr><td>Bezeichnung</td><td>
+              <select name="bezeichnung">
+              <option value="standard">Standardpreis</option>
+              <option value="kundenpreis">Kundenpreis</option>
+              <option value="projekt">Projektpreis</option>
+              </select>
+              </td></tr>
+	      <tr><td>Kunde</td><td>[KUNDEAUTOSTART]<input name="adresse" type="text" size="10">[KUNDEAUTOEND]</td></tr>
+	      <tr><td>Projekt</td><td>[PROJEKTAUTOSTART]<input name="projekt" type="text" size="10">[PROJEKTAUTOEND]</td></tr>
+              <tr><td colspan="2"><br></td></tr>
+	      <tr><td>Ab Menge</td><td><input name="ab_menge" type="text" size="10" rule="notempty" msg="Pflichtfeld!"></td></tr>
+	      <tr valign="top"><td>Preis</td><td><input name="preis" type="text" size="10" rule="notempty" msg="Pflichfeld!">&nbsp;[BRUTTOEINGABE]
+		<br><br><i>Marge:  15,3 %<br>Gewinn: 4,97 EUR  &nbsp;&nbsp;&nbsp;<a href=""><img border="0" src="./themes/default/images/reload_all_tabs.png"></a></i></td></tr>
+              <tr><td colspan="2"><br></td></tr>
+	      <tr><td>G&uuml;ltig bis</td><td><input name="gueltig_bis" type="text" size="10">[DATUM_GUELTIGBIS]</td></tr>
+	      <tr><td>Bemerkung</td><td><textarea name="bemerkung" rows="5" cols="40"></textarea></td></tr>
+              <tr><td colspan="2"><br></td></tr>
+</tbody></table>
+</td>
+      </tr>
+
+    <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</form>

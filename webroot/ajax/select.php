@@ -1,0 +1,7 @@
+<?
+
+
+echo "hallo,peter,super";
+
+
+?>

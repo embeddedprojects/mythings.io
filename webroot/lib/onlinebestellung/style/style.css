@@ -1,0 +1,68 @@
+body {
+font-family:Verdana, Geneva, Arial, Helvetica, sans-serif; 
+color:#000000; 
+font-size:12px; 
+}
+
+a { 
+font-size:10px; 
+font-weight:bold; 
+text-decoration:none; 
+} 
+
+a:hover { 
+font-size:10px; 
+font-weight:bold; 
+text-decoration:underline; 
+} 
+
+p, td {
+color:#000000; 
+font-size:12px; 
+}
+
+.minicartarticle  {
+color:#000000; 
+font-weight:normal;
+font-size:9px; 
+}
+
+
+.minicartsum {
+color:#000000; 
+font-weight:bold;
+font-size:9px; 
+}
+
+.customershowhead  {
+color:#000000; 
+font-weight:bold;
+font-size:14px; 
+}
+
+
+.customershowtitle {
+color:#000000; 
+font-weight:normal;
+font-size:10px; 
+}
+
+.customershow {
+color:#000099; 
+font-weight:bold;
+font-size:10px; 
+}
+
+input.error, select.error {
+padding-right: 16px; 
+border: 1px solid red; 
+background-color: #FFFCE2; 
+background-image: url(../images/warning_obj.gif); 
+background-position: right; 
+background-repeat: no-repeat;
+}
+
+input:focus, select:focus {
+border: 1px solid red; 
+background-color:#EFEFEF;
+}

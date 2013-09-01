@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="robots" content= "ALL" />
+    <meta name="description" content= "" />
+    <meta name="keywords" content= "" />
+    <meta name="classification" content= "" />
+    <meta name="author" content= "" />
+    <meta name="reply-to" content= "" />
+    <meta name="copyright" content= "" />
+
+    <title>embedded projects GmbH</title>
+
+    <link href="./themes/default/css/main.css" rel="stylesheet" type="text/css" media="screen">
+    <!--<link rel="stylesheet" href="../fancybox/jquery.fancybox-1.2.6.css" type="text/css" media="">    -->
+
+    <script type="text/javascript" src="../fancybox/jquery.js"></script>
+    <script type="text/javascript" src="../fancybox/jquery.fancybox-1.2.6.js"></script> 
+    <script language="javascript" type="text/javascript">
+      if(navigator.appName=="Microsoft Internet Explorer"){
+      document.writeln("<link rel='stylesheet' type='text/css' href='./themes/default/css/iemain.css'>");
+    } else {
+      document.writeln("<link rel='stylesheet' type='text/css' href='./themes/default/css/main.css'>");
+    }
+    </script>
+  </head>
+<body>
+  <div id="wrapper">
+  <div id="navTop">
+    <ul id="navlist">
+      <li><a  href="index.php?page_id=1" target=""  class="firstnav_active" title="">Startseite</a></li>
+      <li><a  href="index.php?page_id=5" target=""  class="" title="">Hersteller</a></li>
+      <li><a  href="index.php?page_id=6" target=""  class="" title="">Bestellfax</a></li>
+      <li><a  href="index.php?page_id=7" target=""  class="" title="">Warenkorb</a></li>
+      <li><a  href="index.php?page_id=7" target=""  class="" title="">Kasse</a></li>
+      <li><a  href="index.php?page_id=7" target=""  class="" title="">Kontakt</a></li>
+    </ul>
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="220">Herzlich Willkommen!</td>
+      <td>Kennen Sie bereits unsere Internetseiten: 
+	<a href="http://shop.embedded-projects.net/" target="_blank" class="breadcrump">Online-Shop</a>&nbsp;|&nbsp;
+	<a href="http://www.eproo-student.de" target="_blank" class="breadcrump">Uni-Shop</a>&nbsp;|&nbsp;
+	<a href="http://www.ep-journal.de/" target="_blank" class="breadcrump">Journal</a>
+      </td>
+      <td align="right">
+	<form action="index.php" method="get">
+	  <input name="page_id" value="31" type="hidden">
+	  Suche:&nbsp;<input name="search" type="text" size="15">
+	  <input id="submit" type="submit" value="Suche">
+	</form>
+	
+      </td>
+    </tr>
+    </table>
+  </div>
+  
+  <div class="header generic nineforty" style="background: url(http://www.eproo-gmbh.de//files//admin/banner/header.jpg) no-repeat 0% 0%; height:50px">
+    <div class="generic fiveeighty">
+      <h1>embedded projects GmbH </h1>
+    </div>
+  </div>
+  <div id="content">
+    [PAGE]
+  </div>
+  <div class="footer generic nineforty">
+    <ul id="footer">
+      <li><a href="index.php?page_id=7">Kontakt</a></li>
+      <li><a href="index.php?page_id=30">Impressum</a></li>
+      <li class="Stil1">&copy; Copyright 2010 embedded projects GmbH</li>
+    </ul>
+  </div>
+  </div>
+</body>
+</html>
+

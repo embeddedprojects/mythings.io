@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 6 November 2007), see www.w3.org" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <meta name="robots" content="ALL" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="classification" content="" />
+  <meta name="author" content="" />
+  <meta name="reply-to" content="" />
+  <meta name="copyright" content="" />
+
+  <title>embedded projects GmbH</title>
+  <link href="./themes/default/css/main.css" rel="stylesheet" type=
+  "text/css" media="screen" />
+
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
+        <script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.2.6.pack.js"></script>
+        <script type="text/javascript">
+                $(document).ready(function() {
+                        $("a.zoom").fancybox();
+
+                        $("a.zoom1").fancybox({
+                                'overlayOpacity'        :       0.7,
+                                'overlayColor'          :       '#FFF'
+                        });
+
+                        $("a.zoom2").fancybox({
+                                'zoomSpeedIn'           :       500,
+                                'zoomSpeedOut'          :       500
+                        });
+                });
+        </script>
+
+
+  <!-- Browserunterscheidung -->
+
+  <script type="text/javascript">
+//<![CDATA[
+      if(navigator.appName=="Microsoft Internet Explorer"){
+      document.writeln("<link rel='stylesheet' type='text/css' href='./css/iemain.css'>");
+    } else {
+      document.writeln("<link rel='stylesheet' type='text/css' href='./css/main.css'>");
+    }
+  //]]>
+  </script>
+  <script type="text/javascript" src=
+  "./js/build/yahoo-dom-event/yahoo-dom-event.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/build/dragdrop/dragdrop-min.js">
+</script>
+  <link type="text/css" rel="stylesheet" href=
+  "./js/yui/build/carousel/assets/skins/sam/carousel.css" />
+  <script src="./js/yui/build/utilities/utilities.js" type=
+  "text/javascript">
+</script>
+  <script src="./js/yui/build/carousel/carousel-min.js" type=
+  "text/javascript">
+</script>
+  <link rel="stylesheet" type="text/css" href=
+  "./js/yui/build/paginator/assets/skins/sam/paginator.css" />
+  <link rel="stylesheet" type="text/css" href=
+  "./js/yui/build/datatable/assets/skins/sam/datatable.css" />
+  <script type="text/javascript" src=
+  "./js/yui/build/yahoo-dom-event/yahoo-dom-event.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/connection/connection-min.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/json/json-min.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/element/element-min.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/paginator/paginator-min.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/datasource/datasource-min.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/datatable/datatable-min.js">
+</script>
+  <link rel="stylesheet" type="text/css" href=
+  "./js/yui/build/tabview/assets/skins/sam/tabview.css" />
+  <link rel="stylesheet" type="text/css" href=
+  "./js/yui/build/datatable/assets/skins/sam/datatable.css" />
+  <script type="text/javascript" src=
+  "./js/yui/build/yahoo-dom-event/yahoo-dom-event.js">
+</script>
+  <script type="text/javascript" src=
+  "./js/yui/build/tabview/tabview-min.js">
+</script>
+</head>
+
+<body class="yui-skin-sam">
+  <center>
+    <div id="wrapper" align="left">
+      <div id="navTop">
+        <ul id="navlist">
+          <li><a href="index.php?page_id=1" target="" class=
+          "firstnav_active" title="">Online-Shop</a></li>
+
+<!--          <li><a href="index.php?module=platine&amp;action=demo"
+          target="" class="" title="">Platinen Designer</a></li>-->
+
+  <!--        <li><a href="index.php?module=journal&amp;action=list"
+          target="" class="" title="">EP Journal</a></li>-->
+
+<!--          <li><a href="" target="" class=""
+          title="">Hersteller</a></li>-->
+          <!--        <li><a  href="index.php?page_id=6" target=""  class="" title="">Bestellfax</a></li>-->
+
+          <li><a href="index.php?module=bestellen&action=warenkorb" target="" class=""
+          title="">Warenkorb</a></li>
+
+          <li><a href="index.php?module=bestellen&action=guest" target="" class=""
+          title="">Kasse</a></li>
+
+          <li><a href="index.php?module=content&action=show&page=kontakt" target="" class=""
+          title="">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div id="navSearch">
+        <div id="navSearch1">
+          Herzlich Willkommen!
+        </div>
+
+        <div id="navSearch2">
+          Kennen Sie bereits unsere Internetseiten: <a href=
+          "http://shop.embedded-projects.net/" target="_blank"
+          class="breadcrump">Online-Shop</a>&nbsp;|&nbsp; <a href=
+          "http://www.eproo-student.de" target="_blank" class=
+          "breadcrump">Uni-Shop</a>&nbsp;|&nbsp; <a href=
+          "http://www.ep-journal.de/" target="_blank" class=
+          "breadcrump">Journal</a>
+        </div>
+
+      </div>
+
+      <div id="header">
+        <div class="header">
+          <h1>embedded projects GmbH</h1>
+        </div>
+
+        <div class="flags"><a href="index.php?module=welcome&action=lang&lang=de"><img src=
+        "./themes/default/images/de.png" border="0"/></a><a href="index.php?module=welcome&action=lang&lang=en"><img src=
+        "./themes/default/images/en.png" border="0"/></a></div>
+      </div>[PREPAGE][PAGE]
+
+      <div id="footer">
+        <ul>
+          <li><a href="index.php?module=content&action=show&page=kontakt" style=
+          "text-decoration:none">Kontakt</a></li>
+
+          <li><a href="index.php?module=content&action=show&page=impressum" style=
+          "text-decoration:none">Impressum</a></li>
+
+          <li>© Copyright 2010 embedded projects GmbH</li>
+        </ul><br />
+
+        <center>
+          <table>
+            <tr>
+              <td align="center">
+                <p style="color: #999">Bekannt aus:</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><img src=
+              "./themes/default/images/bekannt_banner.jpg" /></td>
+            </tr>
+          </table>
+        </center>
+      </div>
+    </div>
+  </center>
+</body>
+</html>

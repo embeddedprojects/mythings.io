@@ -1,0 +1,22 @@
+
+apigen
+-------
+# alle objekte generieren
+apigen -u dbuser -p passwort -d database -a  ../zielordner
+
+# bestimmte tabelle generieren
+apigen -u dbuser -p passwort -d database -t tabellennamen ../zielordner
+
+#alternativ
+apigen -c conf/main.conf.php -t tabellennamen ../zielordner
+
+formgen
+------
+
+# einbestimmtes formular erzeugen
+formgen name formular.html ../tplordner ../phpformularzielordner
+
+
+# mit webadresse auf der das form liegt
+formgen name http://benker.dyndns.org/conductorenwurf/index.php?page_id=9 ../tplordner ../phpformularzielordner
+formgen name http://benker.dyndns.org/conductorenwurf/test.html ../tplordner ../phpformularzielordner

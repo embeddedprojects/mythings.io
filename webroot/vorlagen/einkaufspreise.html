@@ -1,0 +1,75 @@
+ 
+<form action="" method="post" name="eprooform" >
+[FORMHANDLEREVENT]
+
+ <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Einkaufspreise<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+
+	     <table border="0" width="100%">
+            <tbody>
+                      <tr><td>Lieferant</td><td>[LIEFERANTAUTOSTART]<input type="text" name="adresse" rule="notempty" msg="Pflichtfeld!">[LIEFERANTAUTOEND]</td></tr>
+                      <tr><td>Artikelnummer bei Lieferant:</td><td><input name="bestellnummer" type="text" size="20"></td></tr>
+                      <tr><td>Bezeichnung bei Lieferant:</td><td><input name="bezeichnunglieferant" type="text" size="20"></td></tr>
+
+                      <!--<tr><td>Preis Art</td><td>
+                      <select name="objekt">
+                              <option value="Standard">Standard Bestellung</option>
+                              <option value="Spezial Projektpreis">Spezial Projektpreis</option>
+                              <option value="Rahmenvertrag">Rahmenvetrag</option>
+			      <option value="Abrufbestellung">Abrufbestellung</option>
+                      </select>
+                      </td></tr>
+                      
+		      <tr><td>Zuordnung</td><td><input name="parameter" type="text" size="10"></td></tr>-->
+
+		      <tr><td colspan="2"><br></td></tr>
+                      <tr><td>Ab Menge:</td><td><input name="ab_menge" rule="notempty" msg="Pflichfeld!" type="text" size="10"></td></tr>
+                      <tr><td>Verpackungseinheit VPE:</td><td>
+			  <select name="vpe">
+			    <option>Einzeln</option>
+			    <option>Tray</option>	
+			    <option>Rolle</option>
+			    <option>St&uuml;ckgut</option>
+			    <option>Stange</option>i
+			    <option>Palette</option>
+		      </select></td></tr>
+                      <tr><td>Preis (netto):</td><td>
+			  <input name="preis" type="text" size="10" rule="notempty" msg="Pflichfeld!">
+			  [BRUTTOEINGABE]
+			  </td></tr>
+                      <tr><td>W&auml;hrung:</td><td><select name="waehrung">
+			<option value="EUR">EUR</option><option value="USD">USD</option>
+			<option value="CAD">CAD</option></select>
+		      </td></tr>
+              <tr><td colspan="2"><br></td></tr>
+                      <tr><td>Preisanfrage vom:</td><td><input name="preis_anfrage_vom" type="text" size="10">[DATUM_PREISANFRAGE]</td></tr>
+                      <tr><td>G&uuml;ltig bis:</td><td><input name="gueltig_bis" type="text" size="10">[DATUM_GUELTIGBIS]</td></tr>
+              <tr><td colspan="2"><br></td></tr>
+                      <tr><td>Lagerbestand Lieferant</td><td><input name="lager_lieferant" type="text" size="10"> am <input name="datum_lagerlieferant" type="text" size="10">[DATUM_LAGER]</td></tr>
+                      <tr><td>Sicherheitslager</td><td><input name="sicherheitslager" type="text" size="10"></td></tr>
+              <tr><td colspan="2"><br></td></tr>
+                  <tr><td>Bemerkung</td><td><textarea name="bemerkung" rows="5" cols="40"></textarea></td></tr>
+              <tr><td colspan="2"><br></td></tr>
+	      </tbody></table>
+
+
+</td>
+      </tr>
+
+    <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</form>

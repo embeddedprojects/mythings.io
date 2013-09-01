@@ -1,0 +1,39 @@
+    <h3>Zahlungsweise</h3>
+    <table width="90%" border="0">
+    <tr><td width="150"></td><td width="180">Zahlungsweise:</td><td></td><td><select name="zahlungsweise">[ZAHLUNGSWEISE]</select></td></tr>
+[VERSANDDESTART]
+    <!--<tr><td width="150"></td><td width="180">Versand:</td><td></td><td>
+     <br><input type="radio" name="lieferung" value="standard" [STANDARD]>Standardversand (3,95 &euro;)
+     <br><input type="radio" name="lieferung" value="selbstabholer" [SELBSTABHOLER]>Selbstabholer in Augsburg (versandkostenfrei)[MSGSELBSTABHOLER]-->
+[VERSANDDEENDE]
+[VERSANDWELTSTART]
+     <br><input type="radio" name="lieferung" value="standard" [STANDARD]>Standardversand (Transportdauer: 1-4 Wochen) (3,95 &euro;)
+[VERSANDWELTENDE]
+
+<br><br>
+
+</td></tr>
+[FORMLAND]
+    </table>
+
+<br><br>
+    <h3>Abweichende Lieferadresse (nur angeben wenn abweichend von Rechnungsadresse)</h3>
+<br><br>
+    <table width="90%" border="0">
+    <tr><td width="150" rowspan="8"></td><td width="180">Lieferadresse falls abweichend:</td><td></td><td><input type="checkbox" name="abweichendelieferadresse" value="1" [ABWEICHENDELIEFERADRESSE]/></td></tr>
+    <tr><td>Name bzw. Firma:</td><td></td><td><input type="text" name="name" size="40" value="[NAME]"/>[MSGNAME]</td></tr>
+    <tr><td>Ansprechpartner:</td><td></td><td><input type="text" name="ansprechpartner" size="40" value="[ANSPRECHPARTNER]"/></td></tr>
+    <tr><td>Stra&szlig;e:</td><td></td><td><input type="text" name="strasse" value="[STRASSE]" size="40"/>[MSGSTRASSE]</td></tr>
+    <tr><td>Abteilung:</td><td></td><td><input type="text" name="abteilung" size="40" value="[ABTEILUNG]"/></td></tr>
+    <tr><td>Unterabteilung:</td><td></td><td><input type="text" name="unterabteilung" size="40" value="[UNTERABTEILUNG]"/></td></tr>
+    <tr><td>Adresszusatz:</td><td></td><td><input type="text" name="adresszusatz" size="40" value="[ADRESSZUSATZ]"/></td></tr>
+    <tr><td>PLZ/Ort:</b></td><td></td><td>[LAND]&nbsp;-&nbsp;<input type="text" size="7" name="plz" value="[PLZ]">&nbsp;<input type="text" name="ort" value="[ORT]" size="26"/>[MSGORT]</td></tr>
+
+
+    <tr><td><input type="button" value="zur&uuml;ck" onclick="javascript:history.back()"></td><td></td><td colspan="2" align="right"><br><br><input type="submit" name="abschicken" value="weiter"></td></tr>
+
+    </table>
+
+
+
+

@@ -1,0 +1,64 @@
+
+<form action="" method="post" name="eprooform">
+[FORMHANDLEREVENT]
+
+
+  <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Adresse<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+          <table border="0" width="70%">
+	    [MESSAGE]
+            <tbody>
+	      <tr><td>Aufgabe:</td><td><input type="text" name="aufgabe" size="50" rule="notempty" msg="Pflichtfeld!"></td></tr>
+	      <tr><td>F&uuml;r:</td><td>[MITARBEITERAUTOSTART]<input name="adresse" type="text" size="10">[MITARBEITERAUTOEND]</td></tr>
+	      <tr><td>Projekt:</td><td>[PROJEKTAUTOSTART]<input name="projekt" type="text" size="10">[PROJEKTAUTOEND]</td></tr>
+	      <tr><td>Beschreibung:</td><td><textarea name="beschreibung" cols="50" rows="5"></textarea></td></tr>
+	      <tr><td>Prio</td><td>
+		  <select name="prio">
+		  <option value="3">Normal</option>
+		  <option value="1">Sehr hoch</option>
+		  <option value="2">Hoch</option>
+		  <option value="4">Niedrig</option>
+		  <option value="5">Sehr Niedrig</option>
+		  </select>
+	      </td></tr>
+	</table>
+    <br><br>
+  <table>
+          <tr><td>Startzeit am </td><td><input type="text" name="startdatum" size="7">[DATUM_STARTDATUM]&nbsp;um&nbsp;
+	  <input type="text" name="startzeit" size="3">&nbsp;Uhr</td>
+          <td>&nbsp;</td>
+            <td>Intervall:</td><td><input type="text" name="intervall_tage" size="15"> (in Tagen)</td></tr>
+	    <tr><td>Dauer:</td><td><input type="text" name="stunden" size="17">(in Stunden)</td><td>&nbsp;</td>
+            <td>Abgabe bis:</td><td><input type="text" name="abgabe_bis" size="15">[DATUM_ABGABEBIS]</td></tr>
+  </table>
+
+	<table>
+	      <tr><td><br><br></td><td></td></tr>
+	      <tr><td>Status</td><td>
+		<select name="abgeschlossen">
+		<option value="0">Offen</option>
+		<option value="1">Abgeschlossen</option>
+		</select>
+	      </td></tr>
+	      <tr valign="top"><td>Sonstiges</td><td><textarea rows="5" cols="50" name="sonstiges"></textarea></td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+    <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+  
+    </tbody>
+  </table>
+
+</form>

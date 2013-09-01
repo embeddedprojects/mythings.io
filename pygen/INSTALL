@@ -1,0 +1,9 @@
+declare -x PATH="/usr/local/bin:/usr/bin:/bin:/usr/games:/home/sistecs/www/phpwfgen/pygen/formgen:/home/sistecs/www/phpwfgen/pygen/apigen:/home/sistecs/www/phpwfgen/pygen:/home/sistecs/www/phpwfgen/pygen/pagegen"
+declare -x PWD="/home/sistecs/www/phpwfgen/jetzendorfer"
+declare -x PYTHONPATH=":/home/sistecs/www/phpwfgen/pygen/formgen:/home/sistecs/www/phpwfgen/pygen/apigen"
+
+
+apt-get install elementtree
+apt-get install python-sqlalchemy
+
+python-mysqldb

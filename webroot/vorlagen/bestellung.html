@@ -1,0 +1,95 @@
+<form action="" method="post" name="eprooform">
+[FORMHANDLEREVENT]
+
+<!-- gehort zu tabview -->
+<div id="tabview" class="yui-navset">
+    <ul class="yui-nav">
+        <li class="[AKTIV_TAB1]"><a href="#tab1"><em>Beschreibung</em></a></li>
+    </ul>
+
+    <div class="yui-content">
+<!-- ende gehort zu tabview -->
+
+<div>
+ <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Konditionen<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+
+[MESSAGE]
+<table>
+<tr valign="top"><td colspan="2">
+
+<fieldset><legend>Allgemein</legend>
+<table width="100%">
+  <tr><td>Lieferant:</td><td width="70%">[LIEFERANTAUTOSTART]<input type="text" name="adresse" rule="notempty" msg="Pflichtfeld!">[LIEFERANTAUTOEND]</td></tr>
+  <tr><td>Status:</td><td><select name="status">[STATUS_SELECT]</select></td></tr>
+</table>
+</fieldset>
+</td><td>
+<fieldset><legend>Positionen</legend>
+[POSITIONEN]
+</fieldset>
+
+</td></tr>
+<tr valign="top"><td>
+<fieldset><legend>Projekt</legend>
+<table width="100%" height="240">
+<tr><td>Projekt:</td><td>[PROJEKTAUTOSTART]<input type="text" name="projekt" >[PROJEKTAUTOEND]</td></tr>
+<tr><td>Bearbeiter:</td><td>[BEARBEITER]</td></tr>
+<tr><td>Datum:</td><td><input type="text" name="datum"></td></tr>
+<tr><td>Lieferdatum:</td><td><input type="text" name="lieferdatum"></td></tr>
+<tr><td>Freitext:</td><td><input type="text" name="freitext"></td></tr>
+<tr><td>Eink&auml;ufer:</td><td>[EINKAEUFER]</td></tr>
+<tr><td>Bestellbest&auml;stigung:</td><td><input type="checkbox" name="bestellbestaetigung" value="1"></td></tr>
+<tr><td>Freigabe:</td><td><input type="checkbox" value="1" name="freigabe"></td></tr>
+</table>
+</fieldset>
+
+</td><td colspan="2">
+
+<fieldset><legend>Konditionen</legend>
+<table width="100%" height="240">
+<tr><td>Betreff:</td><td><input type="text" name="betreff"></td></tr>
+<tr><td>Kundennummer:</td><td><input type="text" name="kundennummer"></td></tr>
+<tr><td>Lieferantennummer:</td><td><input type="text" name="lieferantennummer"></td></tr>
+<tr><td>Versandart:</td><td><select name="versandart">[VERSANDART_SELECT]</select></td></tr>
+<tr><td>Zahlungsweise:</td><td><select name="zahlungsweise">[ZAHLUNGSWEISE_SELECT]</select></td></tr>
+<tr><td>Zahlungsziel (in Tagen):</td><td><input type="text" name="zahlungszieltage"></td></tr>
+<tr><td nowrap>Zahlungsziel Skonto (in Tagen):</td><td><input type="text" name="zahlungszieltageskonto"></td></tr>
+<tr><td>Skonto:</td><td><input type="text" name="zahlungszielskonto"></td></tr>
+</table>
+
+</fieldset>
+</td></tr>
+
+</table>
+
+
+
+
+        </td>
+      </tr>
+
+     <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</div>
+
+ <!-- tab view schließen -->
+</div></div>
+<!-- ende tab view schließen -->
+  
+  </form>
+</body></html>

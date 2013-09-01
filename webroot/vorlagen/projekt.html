@@ -1,0 +1,40 @@
+<form action="" method="post" name="eprooform">
+      [FORMHANDLEREVENT]
+
+  <table class="tableborder" border="0" cellpadding="3" cellspacing="0" width="70%">
+    <tbody>
+      <tr classname="orange1" class="orange1" bordercolor="" align="" bgcolor="" height="" valign="">
+        <td colspan="3" bordercolor="" class="" align="" bgcolor="" height="" valign="">Projekt<br></td>
+      </tr>
+
+      <tr valign="top" colspan="3">
+        <td>
+          <table border="0" width="100%">
+            <tbody>
+	      <tr><td>Name</td><td><input type="text" size="50" name="name"></td></tr>
+	      <tr><td>Abk&uuml;rzung</td><td><input type="text" name="abkuerzung"size="40"><input type="button" value="Pr&uuml;fen"></td></tr>
+	      <tr><td>Verantwortlicher</td><td>
+		<select name="verantwortlicher">
+		<option value="Claudia Sauter">Claudia Sauter</option>
+		<option value="Ines Krueger">Ines Krueger</option>
+		<option value="Benedikt Sauter">Benedikt Sauter</option>
+		</select>
+	      </td></tr>
+	      <tr><td>Beschreibung</td><td><textarea rows="5" cols="50" name="beschreibung"></textarea></td></tr>
+	      <tr><td>Sonstiges</td><td><textarea rows="5" cols="50" name="sonstiges"></textarea></td></tr>
+              <tr><td>Abgeschlossen</td><td><input type="checkbox" name="aktiv" value ="1"></td></tr>
+
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    <!-- speichern -->
+    <tr valign="" height="" bgcolor="" align="" bordercolor="" class="klein" classname="klein">
+    <td width="" valign="" height="" bgcolor="" align="right" colspan="3" bordercolor="" classname="orange2" class="orange2">
+    <input type="submit"
+    value="Speichern" /> <input type="button" value="Abbrechen" /></td>
+    </tr>
+    </tbody>
+  </table>
+  </form>
+</body></html>

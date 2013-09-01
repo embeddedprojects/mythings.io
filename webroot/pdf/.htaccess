@@ -1,0 +1,8 @@
+# Beispieldatei für .htaccess
+AuthType Basic
+AuthName "Administrationsbereich"
+AuthUserFile /usr/admin/web/.htusers
+AuthGroupFile /usr/admin/web/.htgroups
+Require user Benutzer1 Benutzer2 Benutzer3
+Require group Administratoren
+

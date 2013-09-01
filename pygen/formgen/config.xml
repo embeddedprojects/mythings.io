@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project version="0.1" name="PHPGenerator">
+	<title>PHPGenerator</title>
+	<author>Bene und Andreas</author>
+	<url>http://127.0.0.1/protogen/hosting</url>
+	<path>/home/sistecs/www/phpwfgen/misc/tpl/</path>
+	<htmldrafts>/var/www/protogen/hosting/htmldrafts</htmldrafts>
+	<themes default="hosting" folder="/var/www/protogen/hosting/themes" />
+	<database 
+	  type="mysql" 
+	  db="phpwftest" 
+	  host="localhost" 
+	  port="" 
+	  user="phpwf" 
+	  password="phpwf" />
+</project>
